@@ -70,7 +70,7 @@
         }
     }
 
-    
+    // Use text nodes and mark elements so the search text is not treated as HTML
     function highlight(element, text, query) {
         element.textContent = text;
         if (!query) return;
