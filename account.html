@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Account | FinWise</title>
+    <link rel="icon" href="images/finwise.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/account.css">
+    <script src="js/layout.js" defer></script>
+    <script src="js/validation.js" defer></script>
+    <script src="js/account.js" defer></script>
+</head>
+<body>
+    <header data-site-header></header>
+    <main id="main" class="wrap account-layout">
+        <section class="account-intro">
+            <h1>Your FinWise account</h1>
+            <p>Log in to view your profile, or create an account to try FinWise on this device.</p>
+            <aside class="account-note">
+                <strong>Practice account</strong>
+                <p>Use a sample name, email, phone number and password. Your account is saved in this browser.</p>
+            </aside>
+        </section>
+        <div class="account-panel">
+            <nav class="account-sections" aria-label="Account forms">
+                <a id="login-link" href="#login" aria-current="location">Log in</a>
+                <a id="signup-link" href="#signup">Sign up</a>
+            </nav>
+            <p id="account-status" class="account-status" role="status" hidden></p>
+            <section id="login">
+                <h2>Log in</h2>
+                <form id="login-form" class="account-form" novalidate>
+                    <div>
+                        <label for="login-email">Email</label>
+                        <input id="login-email" name="email" type="text" inputmode="email" autocomplete="username" data-rule="email" placeholder="alex@example.com">
+                    </div>
+                    <div>
+                        <label for="login-password">Password</label>
+                        <input id="login-password" name="password" type="password" autocomplete="current-password" data-rule="required">
+                    </div>
+                    <button class="button" type="submit">Log in</button>
+                </form>
+            </section>
+            <section id="signup" hidden>
+                <h2>Create an account</h2>
+                <form id="signup-form" class="account-form" novalidate>
+                    <div>
+                        <label for="signup-name">Full name</label>
+                        <input id="signup-name" name="name" type="text" autocomplete="name" data-rule="required">
+                    </div>
+                    <div>
+                        <label for="signup-email">Email</label>
+                        <input id="signup-email" name="email" type="text" inputmode="email" autocomplete="username" data-rule="email" placeholder="alex@example.com">
+                    </div>
+                    <div>
+                        <label for="signup-phone">Phone number</label>
+                        <input id="signup-phone" name="phone" type="tel" autocomplete="tel" data-rule="phone" placeholder="+7 700 000 0000">
+                    </div>
+                    <div>
+                        <label for="signup-password">Password</label>
+                        <input id="signup-password" name="password" type="password" autocomplete="new-password" data-rule="password" aria-describedby="password-hint">
+                        <small id="password-hint" class="account-hint">Use at least 8 characters, including an uppercase letter, a lowercase letter and a number.</small>
+                    </div>
+                    <div>
+                        <label for="signup-confirm">Confirm password</label>
+                        <input id="signup-confirm" name="confirmation" type="password" autocomplete="new-password" data-rule="confirm" data-match="signup-password">
+                    </div>
+                    <button class="button" type="submit">Create account</button>
+                </form>
+            </section>
+        </div>
+    </main>
+    <footer data-site-footer></footer>
+</body>
+</html>

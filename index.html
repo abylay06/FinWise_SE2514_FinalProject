@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FinWise helps first-time savers explore financial planning and compare currencies with daily exchange rates.">
+    <title>FinWise | Financial planning</title>
+    <link rel="icon" href="images/finwise.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <script defer src="js/validation.js"></script>
+    <script defer src="js/layout.js"></script>
+    <script defer src="js/home.js"></script>
+</head>
+<body>
+    <header data-site-header></header>
+
+    <main id="main-content" class="wrap home">
+        <section class="home-hero" aria-labelledby="home-title">
+            <div class="hero-copy">
+                <h1 id="home-title">Plan your <em>financial future.</em></h1>
+                <p>Learn where your money goes, set a savings goal, and choose a planning service that fits your next step.</p>
+                <div class="home-actions">
+                    <a class="button" href="services.html">Explore services <span aria-hidden="true">→</span></a>
+                    <a class="home-link" href="#exchange">Currency converter <span aria-hidden="true">↓</span></a>
+                </div>
+            </div>
+            <img class="hero-photo" src="images/planning-desk.webp" width="960" height="720" fetchpriority="high" alt="Calculator and notebook on a desk set up for budget planning">
+        </section>
+
+        <section class="pathways" aria-labelledby="topics-title">
+            <div class="home-section-heading">
+                <h2 id="topics-title">What would you like to plan?</h2>
+                <a class="home-link" href="services.html?q=">All services <span aria-hidden="true">→</span></a>
+            </div>
+            <div class="pathways-grid">
+                <a class="pathway" href="services.html?q=Investment">
+                    <span aria-hidden="true" class="pathway-icon">↗</span>
+                    <h3>Investment planning</h3>
+                    <p>Set a goal and consider how much risk you can take.</p>
+                </a>
+                <a class="pathway" href="services.html?q=Retirement">
+                    <span aria-hidden="true" class="pathway-icon">◷</span>
+                    <h3>Retirement planning</h3>
+                    <p>Work backwards from when you want to retire.</p>
+                </a>
+                <a class="pathway" href="services.html?q=Wealth">
+                    <span aria-hidden="true" class="pathway-icon">≋</span>
+                    <h3>Wealth management</h3>
+                    <p>Bring your savings, spending, and long-term plans together.</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="exchange" id="exchange" aria-labelledby="exchange-title">
+            <div class="exchange-intro">
+                <h2 id="exchange-title">Currency converter</h2>
+                <p>Estimate a travel or study budget using daily exchange rates.</p>
+                <a class="home-link" href="https://www.exchangerate-api.com">Rates By Exchange Rate API</a>
+            </div>
+            <div class="exchange-panel">
+                <div class="exchange-controls">
+                    <div class="exchange-field">
+                        <label for="exchange-amount">Amount</label>
+                        <input id="exchange-amount" type="text" inputmode="decimal" value="100" aria-describedby="amount-error">
+                    </div>
+                    <div class="exchange-field">
+                        <label for="exchange-from">From</label>
+                        <select id="exchange-from">
+                            <option value="USD" selected>USD</option>
+                            <option value="KZT">KZT</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                        </select>
+                    </div>
+                    <div class="exchange-field">
+                        <label for="exchange-to">To</label>
+                        <select id="exchange-to">
+                            <option value="USD">USD</option>
+                            <option value="KZT" selected>KZT</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
+                        </select>
+                    </div>
+                </div>
+                <p id="amount-error" class="amount-error" hidden></p>
+                <div class="exchange-result">
+                    <span>Estimated amount</span>
+                    <output id="exchange-result" for="exchange-amount exchange-from exchange-to" aria-live="polite">—</output>
+                </div>
+                <p id="exchange-status" role="status">Loading exchange rates…</p>
+                <button id="exchange-retry" type="button" class="button secondary" hidden>Try again</button>
+            </div>
+        </section>
+
+        <section class="habits" aria-labelledby="habits-title">
+            <div>
+                <h2 id="habits-title">Everyday money tips</h2>
+                <p id="tip-count">Tip 1 of 3</p>
+            </div>
+            <div class="habits-content">
+                <p id="finance-tip" aria-live="polite">Track your spending for a week. Put each purchase into a category and see where most of your money goes.</p>
+                <div class="home-actions">
+                    <button id="tip-next" class="button secondary" type="button">Next tip <span aria-hidden="true">→</span></button>
+                    <button id="tip-copy" class="button secondary" type="button">Copy tip</button>
+                    <button id="tip-listen" class="button secondary" type="button" hidden>Listen to tip</button>
+                </div>
+                <p id="copy-status" role="status"></p>
+            </div>
+        </section>
+
+        <details class="goal-planner">
+            <summary>Savings goal calculator</summary>
+            <p>Find the number of months you need to reach a target, starting from zero and saving the same amount each month.</p>
+            <form id="goal-planner" novalidate>
+                <div id="goal-step-one">
+                    <label for="savings-goal">1. How much would you like to save in KZT?</label>
+                    <input type="text" id="savings-goal" inputmode="decimal" data-rule="money" placeholder="e.g. 120000">
+                </div>
+                <div id="goal-step-two" hidden>
+                    <label for="monthly-saving">2. How much can you save each month in KZT?</label>
+                    <input type="text" id="monthly-saving" inputmode="decimal" data-rule="money" placeholder="e.g. 15000">
+                </div>
+                <div class="home-actions">
+                    <button id="goal-back" class="button secondary" type="button" hidden>Back</button>
+                    <button id="goal-submit" class="button" type="submit">Next</button>
+                </div>
+                <p id="goal-result" role="status"></p>
+            </form>
+        </details>
+
+        <details class="investor-directory">
+            <summary>Company investor resources</summary>
+            <p>Explore real examples of company reports and financial results.</p>
+            <ul>
+                <li><a href="https://abc.xyz/investor/">Alphabet (Google)</a></li>
+                <li><a href="https://www.microsoft.com/en-us/investor/default">Microsoft</a></li>
+                <li><a href="https://ir.aboutamazon.com/overview/default.aspx">Amazon</a></li>
+            </ul>
+        </details>
+    </main>
+    <footer data-site-footer></footer>
+</body>
+</html>
+
+

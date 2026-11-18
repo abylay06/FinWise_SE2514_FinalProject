@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Profile | FinWise</title>
+    <link rel="icon" href="images/finwise.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/account.css">
+    <script src="js/layout.js" defer></script>
+    <script src="js/validation.js" defer></script>
+    <script src="js/account.js" defer></script>
+</head>
+<body>
+    <header data-site-header></header>
+    <main id="main" class="wrap account-layout">
+        <section class="account-intro">
+            <h1>Your profile</h1>
+            <p>View the details you saved when you joined FinWise.</p>
+            <a class="account-text-link" href="services.html">Explore financial services <span aria-hidden="true">&rarr;</span></a>
+        </section>
+        <section id="profile-panel" class="account-panel" hidden aria-labelledby="profile-name">
+            <div class="profile-heading">
+                <span id="profile-initials" class="profile-initials" aria-hidden="true"></span>
+                <h2 id="profile-name"></h2>
+            </div>
+            <dl class="profile-facts">
+                <dt>Email</dt>
+                <dd id="profile-email"></dd>
+                <dt>Phone number</dt>
+                <dd id="profile-phone"></dd>
+            </dl>
+            <button id="logout" class="button secondary" type="button">Log out</button>
+        </section>
+        <section id="profile-error" class="account-panel" hidden>
+            <h2>Unable to open your profile</h2>
+            <p>Allow this browser to use local storage, then log in again.</p>
+            <a class="button secondary" href="account.html#login">Return to log in</a>
+        </section>
+    </main>
+    <footer data-site-footer></footer>
+</body>
+</html>

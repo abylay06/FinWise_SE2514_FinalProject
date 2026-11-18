@@ -1,0 +1,296 @@
+.home {
+    padding-block: clamp(24px, 4vw, 56px) clamp(52px, 6vw, 90px);
+}
+
+.home h1, .home h2, .home h3 {
+    margin: 0;
+}
+
+.home-hero {
+    display: grid;
+    grid-template-columns: 1fr 1.04fr;
+    background: var(--accent-soft);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.hero-copy {
+    padding: clamp(32px, 4.4vw, 70px);
+    align-self: center;
+}
+
+.home-hero h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(3.4rem, 5.4vw, 5.8rem);
+    line-height: .97;
+    letter-spacing: -.055em;
+    font-weight: 500;
+}
+
+.home-hero h1 em {
+    display: block;
+    color: var(--accent);
+    font-weight: 400;
+}
+
+.hero-copy > p {
+    line-height: 1.6;
+    max-width: 38ch;
+    margin: 24px 0;
+}
+
+.hero-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 370px;
+    max-height: 560px;
+    object-fit: cover;
+}
+
+.home-actions, .home-section-heading, .home-link {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 22px;
+}
+
+.home-link {
+    display: inline-flex;
+    gap: .45em;
+    font-size: .93rem;
+    font-weight: 650;
+    color: var(--accent);
+    text-underline-offset: .23em;
+}
+
+.home-link:hover {
+    text-decoration: underline;
+}
+
+.home h2 {
+    font-family: Georgia, serif;
+    font-size: clamp(2rem, 3.2vw, 3.2rem);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -.04em;
+}
+
+.pathways, .exchange, .habits {
+    margin-top: clamp(46px, 6vw, 80px);
+}
+
+.home-section-heading {
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.pathways-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-block: 1px solid var(--line);
+}
+
+.pathway {
+    display: block;
+    padding: 24px clamp(18px, 2.2vw, 36px);
+    text-decoration: none;
+    color: var(--ink);
+    transition: background-color .2s ease;
+}
+
+.pathway + .pathway {
+    border-left: 1px solid var(--line);
+}
+
+.pathway:hover, .pathway:focus-visible {
+    background: var(--accent-soft);
+}
+
+.pathway h3 {
+    font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+}
+
+.pathway p {
+    color: var(--muted);
+    line-height: 1.5;
+    margin: 8px 0 0;
+}
+
+.pathway-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font: bold 1.4rem/1 Georgia, serif;
+    margin-bottom: 18px;
+}
+
+.exchange, .habits {
+    display: grid;
+    grid-template-columns: .8fr 1fr;
+    gap: clamp(24px, 6vw, 80px);
+    align-items: center;
+}
+
+.exchange-intro > p, .habits > div > p {
+    color: var(--muted);
+    max-width: 36ch;
+    line-height: 1.6;
+}
+
+.exchange-panel {
+    padding: clamp(22px, 3vw, 38px);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: var(--surface);
+}
+
+.exchange-controls {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 12px;
+}
+
+.exchange-field label, .exchange-result > span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.exchange-field input, .exchange-field select {
+    min-width: 0;
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 10px;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    color: var(--ink);
+    background: var(--paper);
+    font: inherit;
+}
+
+.exchange-result {
+    margin-top: 22px;
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+}
+
+#exchange-result {
+    display: block;
+    color: var(--accent);
+    font: 500 clamp(1.65rem, 3vw, 2.5rem)/1.18 Georgia, serif;
+    overflow-wrap: anywhere;
+    font-variant-numeric: tabular-nums;
+}
+
+#exchange-status, #copy-status {
+    color: var(--muted);
+    font-size: .875rem;
+    margin: 10px 0 0;
+}
+
+#exchange-retry {
+    margin-top: 14px;
+}
+
+.amount-error {
+    color: var(--error);
+    font-size: .9rem;
+}
+
+.habits {
+    border-block: 1px solid var(--line);
+    padding-block: 30px;
+}
+
+.habits .habits-content > #finance-tip {
+    margin: 0 0 18px;
+    max-width: none;
+    font-size: 1.14rem;
+    color: var(--ink);
+}
+
+.investor-directory, .goal-planner {
+    max-width: 55ch;
+    margin-top: 24px;
+}
+
+.investor-directory summary, .goal-planner summary {
+    font-weight: 650;
+    cursor: pointer;
+    color: var(--accent);
+}
+
+.investor-directory li + li {
+    margin-top: 8px;
+}
+
+.goal-planner {
+    max-width: 66ch;
+}
+
+.goal-planner p {
+    margin: 12px 0;
+}
+
+.goal-planner label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.goal-planner input {
+    max-width: 21rem;
+}
+
+.goal-planner .home-actions {
+    margin-top: 14px;
+}
+
+@media (max-width: 760px) {
+    .home-hero, .exchange, .habits {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-photo {
+        min-height: 0;
+        height: clamp(200px, 45vw, 340px);
+    }
+
+    .pathways-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pathway + .pathway {
+        border-left: 0;
+        border-top: 1px solid var(--line);
+    }
+
+    .pathway-icon {
+        float: right;
+        margin-left: 14px;
+    }
+}
+
+@media (max-width: 430px) {
+    .hero-copy {
+        padding: 28px 22px;
+    }
+
+    .home-hero h1 {
+        font-size: clamp(2.7rem, 12.5vw, 3.4rem);
+    }
+
+    .exchange-controls {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .exchange-field:first-child {
+        grid-column: 1 / -1;
+    }
+}

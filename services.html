@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Services | FinWise</title>
+    <link rel="icon" href="images/finwise.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <script defer src="js/validation.js"></script>
+    <script defer src="js/layout.js"></script>
+    <script defer src="js/pages.js"></script>
+</head>
+<body>
+    <header data-site-header></header>
+    <main id="main" class="wrap inner-page">
+        <header class="page-intro">
+            <h1>Our services</h1>
+            <p>Find a starting point for your next financial decision.</p>
+        </header>
+        <section aria-label="Service directory">
+            <div class="service-search">
+                <div><label for="fw-search">Search services</label>
+                    <input id="fw-search" type="search" autocomplete="off" list="fw-suggestions" placeholder="Try investment or retirement">
+                    <datalist id="fw-suggestions">
+                        <option value="Investment Planning"></option>
+                        <option value="Retirement Planning"></option>
+                        <option value="Wealth Management"></option>
+                    </datalist>
+                </div>
+                <button class="button secondary" type="button" id="clear-search">Clear search</button>
+            </div>
+            <p class="search-summary" id="fw-results" role="status">3 services found.</p>
+            <div class="service-grid">
+                <article class="service-card">
+                    <h2>Investment Planning</h2>
+                    <p>Build an investment strategy based on your goals. Start with what you want to save for and when you will need it.</p>
+                    <button class="button secondary choose-service" type="button">Choose service</button>
+                </article>
+                <article class="service-card">
+                    <h2>Retirement Planning</h2>
+                    <p>Prepare a clear plan for your future. Explore your retirement timeline and the savings habits that fit it.</p>
+                    <button class="button secondary choose-service" type="button">Choose service</button>
+                </article>
+                <article class="service-card">
+                    <h2>Wealth Management</h2>
+                    <p>Manage and grow your wealth over time. Bring together your savings, spending priorities and long-term plans.</p>
+                    <button class="button secondary choose-service" type="button">Choose service</button>
+                </article>
+            </div>
+        </section>
+        <section class="page-section form-section" aria-labelledby="contact-title">
+            <div class="form-intro">
+                <h2 id="contact-title">Plan a consultation</h2>
+                <p>Use sample details to prepare a consultation request. Your latest request stays in this browser. The demo does not send email or arrange calls.</p>
+                <div id="last-request" hidden>
+                    <h3>Last saved request</h3>
+                    <p id="request-service"></p>
+                    <p id="request-contact"></p>
+                    <p id="request-message"></p>
+                </div>
+            </div>
+            <form class="entry-form" id="services-form" novalidate>
+                <div class="form-pair">
+                    <div><label for="contact-name">Name</label>
+                        <input type="text" id="contact-name" autocomplete="name" data-rule="required" data-label="Name"></div>
+                    <div><label for="contact-email">Email</label>
+                        <input type="text" id="contact-email" inputmode="email" autocomplete="email" data-rule="email" data-label="Email"></div>
+                </div>
+                <div class="form-pair">
+                    <div><label for="service">Service</label>
+                        <select id="service" data-rule="required" data-label="Service">
+                            <option value="">Select a service</option>
+                            <option>Investment Planning</option><option>Retirement Planning</option><option>Wealth Management</option>
+                        </select></div>
+                    <div><label for="adviser">Adviser</label>
+                        <select id="adviser">
+                            <option value="">No preference</option><option value="Amir">Amir K.</option>
+                            <option value="Abylay">Abylay A.</option><option value="Money">Mr Money</option>
+                        </select></div>
+                </div>
+                <div class="form-pair">
+                    <div><label for="contact-method">Preferred contact method</label>
+                        <select id="contact-method"><option>Email</option><option>Phone</option></select></div>
+                    <div><label for="contact-phone">Phone <span id="phone-optional">(optional)</span></label>
+                        <input type="text" id="contact-phone" inputmode="tel" autocomplete="tel" placeholder="+7 701 123 4567" data-rule="phone" data-label="Phone" data-optional></div>
+                </div>
+                <div><label for="contact-message">What would you like to discuss?</label>
+                    <textarea id="contact-message" rows="3" data-rule="required" data-label="Message"></textarea></div>
+                <div class="actions">
+                    <button type="submit" class="button">Save request</button>
+                    <button type="reset" class="button secondary">Clear</button>
+                </div>
+                <p class="form-result" role="status"></p>
+            </form>
+        </section>
+    </main>
+    <footer data-site-footer></footer>
+</body>
+</html>
