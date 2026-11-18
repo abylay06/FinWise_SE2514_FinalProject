@@ -32,7 +32,7 @@ function loadStockChart() {
         chartStatus.textContent = 'The chart is taking longer to load. You can open it on TradingView below.';
     }
     loadingTimer = setTimeout(showUnavailable, 12000);
-    
+    // TradingView draws the chart using the symbol, periods and theme below
     const script = document.createElement('script');
     script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js';
     script.async = true;
