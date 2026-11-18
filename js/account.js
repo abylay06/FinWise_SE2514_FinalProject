@@ -7,8 +7,8 @@ function readAccounts() {
     const saved = localStorage.getItem(accountsKey);
     return saved ? JSON.parse(saved) : [];
 }
-
-
+// Create a password hash with PBKDF2 and a separate salt for each account.
+// During login, reuse the saved salt to check the entered password.
 async function passwordHash(password, salt) {
     const encoder = new TextEncoder();
     const key = await crypto.subtle.importKey("raw", encoder.encode(password), "PBKDF2", false, ["deriveBits"]);
