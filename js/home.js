@@ -26,7 +26,7 @@ function showConversion() {
         return;
     }
 
-    
+    // All rates use USD as their base: convert to USD first, then to the target
     const rates = rateTable.rates;
     const total = value / rates[fromCurrency.value] * rates[toCurrency.value];
     exchangeResult.textContent = total.toLocaleString("en-US", {
@@ -60,7 +60,7 @@ function rateDate(data) {
 async function loadRates() {
     retryButton.hidden = true;
     const saved = readSavedRates();
-    
+    // Reuse saved rates until the provider's next update time
     if (saved && saved.time_next_update_unix * 1000 > Date.now()) {
         rateTable = saved;
         rateStatus.textContent = "Daily rates dated " + rateDate(saved) + ".";
@@ -170,7 +170,7 @@ goalForm.addEventListener("submit", event => {
         showMonthlyStep(true);
         return;
     }
-    
+    // Use whole minor units to avoid an extra month caused by decimal rounding
     const goal = Math.round(readMoney(goalInput.value) * 100);
     const months = Math.ceil(goal / Math.round(value * 100));
     goalResult.textContent = "You will reach your goal in " + months.toLocaleString("en-US") +
