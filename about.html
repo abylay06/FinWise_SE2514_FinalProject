@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About us | FinWise</title>
+    <link rel="icon" href="images/finwise.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <script defer src="js/validation.js"></script>
+    <script defer src="js/layout.js"></script>
+    <script defer src="js/pages.js"></script>
+</head>
+<body>
+    <header data-site-header></header>
+    <main id="main" class="wrap inner-page">
+        <header class="page-intro">
+            <h1>About FinWise</h1>
+            <p id="dynamic-greeting">Welcome to FinWise.</p>
+        </header>
+
+        <section class="mission-block" aria-labelledby="mission-title">
+            <div>
+                <h2 id="mission-title">Our mission</h2>
+                <p>We help people take their first steps with money, from setting a goal to asking useful questions about retirement or investing.</p>
+            </div>
+            <div class="values-block">
+                <h3>What we value</h3>
+                <dl>
+                    <dt>Trust</dt><dd>Be clear about what a tool can do.</dd>
+                    <dt>Transparency</dt><dd>Explain where numbers come from.</dd>
+                    <dt>Personalization</dt><dd>Start with the visitor’s own goals.</dd>
+                </dl>
+            </div>
+        </section>
+
+        <section class="page-section" aria-labelledby="team-title">
+            <h2 id="team-title">Meet our team</h2>
+            <div class="team-gallery">
+                <figure class="team-preview">
+                    <img src="images/Amir_K.jpg" id="main-gallery-image" alt="Amir K." width="400" height="420">
+                    <figcaption id="gallery-caption">Amir K. · Co-founder &amp; Financial Strategist</figcaption>
+                </figure>
+                <div class="team-list">
+                    <article class="team-row">
+                        <button type="button" class="team-choice" aria-label="Show Amir K.’s portrait" aria-pressed="true" data-caption="Amir K. · Co-founder &amp; Financial Strategist">
+                            <img src="images/Amir_K.jpg" width="64" height="64" alt="Amir K.">
+                        </button>
+                        <div><h3>Amir K.</h3><p>Co-founder &amp; Financial Strategist</p>
+                            <a href="services.html?adviser=Amir#services-form">Contact Amir <span aria-hidden="true">→</span></a></div>
+                    </article>
+                    <article class="team-row">
+                        <button type="button" class="team-choice" aria-label="Show Abylay A.’s portrait" aria-pressed="false" data-caption="Abylay A. · Co-founder &amp; Wealth Management Expert">
+                            <img src="images/Abylay_A.jpg" width="64" height="64" alt="Abylay A.">
+                        </button>
+                        <div><h3>Abylay A.</h3><p>Co-founder &amp; Wealth Management Expert</p>
+                            <a href="services.html?adviser=Abylay#services-form">Contact Abylay <span aria-hidden="true">→</span></a></div>
+                    </article>
+                    <article class="team-row">
+                        <button type="button" class="team-choice" aria-label="Show Mr Money’s portrait" aria-pressed="false" data-caption="Mr Money · Senior Financial Analyst">
+                            <img src="images/rich.png" width="64" height="64" alt="Mr Money">
+                        </button>
+                        <div><h3>Mr Money</h3><p>Senior Financial Analyst</p>
+                            <a href="services.html?adviser=Money#services-form">Contact Mr Money <span aria-hidden="true">→</span></a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section questions" aria-labelledby="faq-title">
+            <div class="section-tools">
+                <h2 id="faq-title">Frequently asked questions</h2>
+                <button type="button" id="toggle-all" class="button secondary" aria-controls="faq-invest faq-data faq-plan">Expand all</button>
+            </div>
+            <details id="faq-invest"><summary>How do I start investing with FinWise?</summary>
+                <p>Explore <a href="services.html">Investment Planning</a> to see what a first conversation might cover. You can try a consultation request to practice describing your goals.</p>
+            </details>
+            <details id="faq-data"><summary>Where does FinWise keep my information?</summary>
+                <p>This is a student project. Demo account information and saved activities stay in your browser. Use sample details when trying the forms.</p>
+            </details>
+            <details id="faq-plan"><summary>Can I change my retirement plan later?</summary>
+                <p>Yes. When your goals or time frame change, you can revisit the questions in Retirement Planning and save a new consultation request.</p>
+            </details>
+        </section>
+    </main>
+    <footer data-site-footer></footer>
+</body>
+</html>

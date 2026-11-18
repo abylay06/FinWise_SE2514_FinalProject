@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Testimonials | FinWise</title>
+    <link rel="icon" href="images/finwise.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <script defer src="js/validation.js"></script>
+    <script defer src="js/layout.js"></script>
+    <script defer src="js/pages.js"></script>
+</head>
+<body>
+    <header data-site-header></header>
+    <main id="main" class="wrap inner-page">
+        <header class="page-intro">
+            <h1>What our clients say</h1>
+            <p>Three sample client stories about taking the next step with money.</p>
+        </header>
+        <section class="review-grid" aria-label="Featured testimonials">
+            <figure class="review-card">
+                <blockquote>“FinWise helped me understand my financial goals and create a clear plan.”</blockquote>
+                <figcaption><img src="images/Alex.jpeg" alt="" width="56" height="56"><strong>Alex M.</strong></figcaption>
+            </figure>
+            <figure class="review-card">
+                <blockquote>“The advice was simple, clear, and easy to understand.”</blockquote>
+                <figcaption><img src="images/Maria.jpeg" alt="" width="56" height="56"><strong>Maria K.</strong></figcaption>
+            </figure>
+            <figure class="review-card">
+                <blockquote>“I feel much more confident about planning for my future.”</blockquote>
+                <figcaption><img src="images/Daniel.jpeg" alt="" width="56" height="56"><strong>Daniel R.</strong></figcaption>
+            </figure>
+        </section>
+
+        <section class="page-section form-section" aria-labelledby="review-title">
+            <div class="form-intro">
+                <h2 id="review-title">Share your experience</h2>
+                <p>What helped you, and what could we explain better? Your review stays in this browser. Only your name, rating and message appear here.</p>
+            </div>
+            <form class="entry-form" id="validationForm" novalidate>
+                <fieldset class="stars-field" aria-describedby="rating-hint rating-error">
+                    <legend>Your rating</legend>
+                    <div id="rating-stars" class="stars">
+                        <label><input type="radio" name="rating" value="1"><span aria-hidden="true">★</span><span class="sr-only">1 star</span></label>
+                        <label><input type="radio" name="rating" value="2"><span aria-hidden="true">★</span><span class="sr-only">2 stars</span></label>
+                        <label><input type="radio" name="rating" value="3"><span aria-hidden="true">★</span><span class="sr-only">3 stars</span></label>
+                        <label><input type="radio" name="rating" value="4"><span aria-hidden="true">★</span><span class="sr-only">4 stars</span></label>
+                        <label><input type="radio" name="rating" value="5"><span aria-hidden="true">★</span><span class="sr-only">5 stars</span></label>
+                    </div>
+                    <small id="rating-hint">Choose 1 to 5 stars.</small>
+                    <p class="page-error" id="rating-error" aria-live="polite"></p>
+                </fieldset>
+                <div class="form-pair">
+                    <div><label for="review-name">Name</label>
+                        <input id="review-name" name="name" type="text" autocomplete="name" data-rule="required" data-label="Name"></div>
+                    <div><label for="review-email">Email</label>
+                        <input id="review-email" name="email" type="text" inputmode="email" autocomplete="email" data-rule="email" data-label="Email"></div>
+                </div>
+                <div><label for="review-message">Your review</label>
+                    <textarea id="review-message" name="message" rows="3" data-rule="required" data-label="Review"></textarea></div>
+                <div class="actions">
+                    <button class="button" type="submit">Save review</button>
+                    <button class="button secondary" type="reset">Clear</button>
+                </div>
+                <p class="form-result" role="status"></p>
+            </form>
+        </section>
+        <section class="page-section" id="my-reviews" hidden>
+            <h2>Your saved reviews</h2>
+            <div id="saved-reviews"></div>
+        </section>
+    </main>
+    <footer data-site-footer></footer>
+</body>
+</html>

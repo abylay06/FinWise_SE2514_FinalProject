@@ -1,4 +1,38 @@
+
 (() => {
+    function setupAbout() {
+        const greeting = document.querySelector("#dynamic-greeting");
+        const hour = new Date().getHours();
+        if (hour < 12) greeting.textContent = "Good morning. Welcome to FinWise.";
+        else if (hour < 18) greeting.textContent = "Good afternoon. Welcome to FinWise.";
+        else greeting.textContent = "Good evening. Welcome to FinWise.";
+
+        const preview = document.querySelector("#main-gallery-image");
+        const choices = document.querySelectorAll(".team-choice");
+        choices.forEach(choice => {
+            choice.addEventListener("click", () => {
+                const portrait = choice.querySelector("img");
+                preview.src = portrait.src;
+                preview.alt = portrait.alt;
+                document.querySelector("#gallery-caption").textContent = choice.dataset.caption;
+                choices.forEach(button => button.setAttribute("aria-pressed", button === choice));
+            });
+        });
+
+        
+        const questions = Array.from(document.querySelectorAll(".questions details"));
+        const toggleAll = document.querySelector("#toggle-all");
+        function updateToggle() {
+            toggleAll.textContent = questions.every(question => question.open) ? "Collapse all" : "Expand all";
+        }
+        toggleAll.addEventListener("click", () => {
+            const openAll = !questions.every(question => question.open);
+            questions.forEach(question => { question.open = openAll; });
+            updateToggle();
+        });
+        questions.forEach(question => question.addEventListener("toggle", updateToggle));
+    }
+
     function loadSaved(key, fallback) {
         try {
             const value = localStorage.getItem(key);
@@ -165,8 +199,84 @@
         });
     }
 
+    function setupReviews() {
+        const form = document.querySelector("#validationForm");
+        const stars = Array.from(form.querySelectorAll('input[name="rating"]'));
+        const ratingError = document.querySelector("#rating-error");
+        const list = document.querySelector("#saved-reviews");
+        const key = "finwise.reviews";
+
+        function drawStars(value) {
+            stars.forEach(star => star.parentElement.classList.toggle("filled", Number(star.value) <= value));
+            document.querySelector("#rating-hint").textContent = value ? value + " of 5 stars" : "Choose 1 to 5 stars.";
+        }
+        function getReviews() {
+            const reviews = loadSaved(key, []);
+            return Array.isArray(reviews) ? reviews : [];
+        }
+        function showReviews() {
+            list.replaceChildren();
+            getReviews().forEach(review => {
+                if (!review || typeof review.name !== "string" || typeof review.message !== "string") return;
+                const item = document.createElement("figure");
+                const quote = document.createElement("blockquote");
+                const author = document.createElement("figcaption");
+                quote.textContent = review.message;
+                author.textContent = review.name + " · " + review.rating + "/5";
+                item.append(quote, author);
+                list.append(item);
+            });
+            document.querySelector("#my-reviews").hidden = list.childElementCount === 0;
+        }
+
+        showReviews();
+        stars.forEach(star => star.addEventListener("change", () => {
+            drawStars(Number(star.value));
+            ratingError.textContent = "";
+        }));
+        form.addEventListener("reset", () => {
+            FinWiseValidation.clear(form);
+            form.querySelector(".form-result").textContent = "";
+            ratingError.textContent = "";
+            drawStars(0);
+        });
+        form.addEventListener("submit", async event => {
+            event.preventDefault();
+            if (form.inert) return;
+            const status = form.querySelector(".form-result");
+            status.textContent = "";
+            const fieldsValid = FinWiseValidation.validate(form);
+            const selected = stars.find(star => star.checked);
+            if (!selected) {
+                ratingError.textContent = "Choose a rating from 1 to 5.";
+                stars[0].focus();
+                return;
+            }
+            if (!fieldsValid) return;
+            const review = {
+                name: document.querySelector("#review-name").value.trim(),
+                message: document.querySelector("#review-message").value.trim(),
+                rating: Number(selected.value)
+            };
+            const stored = await saveWithFeedback(form, () => {
+                const reviews = getReviews();
+                reviews.unshift(review);
+                return save(key, reviews);
+            });
+            if (!stored) {
+                status.textContent = "Your browser could not save this review. Allow site storage and try again.";
+                return;
+            }
+            form.reset();
+            showReviews();
+            status.textContent = "Your review is saved. You can read it below.";
+        });
+    }
+
+    if (document.querySelector("#main-gallery-image")) setupAbout();
     if (document.querySelector("#fw-search")) {
         setupSearch();
         setupConsultation();
     }
+    if (document.querySelector("#validationForm")) setupReviews();
 })();

@@ -1,7 +1,7 @@
 
 const mainPages = [
     ['index.html', 'Home'], ['services.html', 'Services'],
-    ['about.html', 'About'], ['testimonials.html', 'Testimonials']
+    ['markets.html', 'Markets'], ['about.html', 'About'], ['testimonials.html', 'Testimonials']
 ];
 const currentPage = location.pathname.split('/').pop() || 'index.html';
 const siteHeader = document.querySelector('[data-site-header]');
@@ -59,10 +59,14 @@ siteFooter.innerHTML = `
 const themeButton = document.querySelector('#theme-toggle');
 function applyTheme(theme) {
     const dark = theme === 'dark';
+    const previous = document.documentElement.dataset.theme;
     document.documentElement.dataset.theme = dark ? 'dark' : 'light';
     themeButton.firstElementChild.textContent = dark ? '☀' : '☾';
     themeButton.lastElementChild.textContent = dark ? 'Light' : 'Dark';
     themeButton.setAttribute('aria-label', dark ? 'Use light theme' : 'Use dark theme');
+    if (previous !== document.documentElement.dataset.theme) {
+        document.dispatchEvent(new Event('finwise-theme-change'));
+    }
 }
 function restoreHeader() {
     applyTheme(readSetting('finwise.theme'));

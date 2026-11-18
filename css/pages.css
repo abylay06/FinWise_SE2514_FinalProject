@@ -64,6 +64,26 @@
 .service-card h2 { font-size: clamp(1.35rem, 2.4vw, 1.8rem); margin: 0; }
 .service-card p { line-height: 1.55; color: var(--muted); margin: .8rem 0 1.5rem; }
 .service-card button { margin-top: auto; }
+.market-service-link { margin-top: .7rem; font-weight: 600; }
+.markets-page .page-intro { margin-bottom: 1.6rem; }
+.market-panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.market-toolbar, .market-caption { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .8rem 2rem; padding: 1.25rem clamp(1rem, 3vw, 2rem); }
+.market-toolbar h2 { margin: 0; }
+.market-toolbar p { margin: .4rem 0 0; color: var(--muted); }
+.market-picker label { display: block; font-size: .85rem; font-weight: 650; margin-bottom: .2rem; }
+.market-picker select { min-width: 12rem; }
+.market-chart-area { position: relative; border-block: 1px solid var(--line); }
+#market-widget { height: clamp(340px, 52vh, 480px); }
+.market-panel .tradingview-widget-container { height: 100%; width: 100%; }
+#chart-status { position: absolute; inset: 0; display: grid; place-content: center; padding: 1.2rem; text-align: center; background: var(--surface); color: var(--muted); pointer-events: none; }
+#chart-status:empty { display: none; }
+.market-caption { padding-block: .8rem; color: var(--muted); font-size: .9rem; }
+.market-reading { margin-top: 2rem; max-width: 65ch; }
+.market-reading h2 { font-size: 1.5rem; margin-bottom: .45rem; }
+@media (max-width: 540px) {
+    .market-picker { width: 100%; }
+    .market-picker select { min-width: 0; }
+}
 .service-card mark { background: #ffe098; color: #382908; border-radius: .1em; }
 .review-card blockquote, #saved-reviews blockquote { margin: 0 0 1.35rem; font-size: clamp(1.2rem, 2.2vw, 1.6rem); line-height: 1.4; }
 .review-card figcaption { display: flex; align-items: center; gap: .7rem; margin-top: auto; }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Markets | FinWise</title>
+    <link rel="icon" href="images/finwise.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <script defer src="js/validation.js"></script>
+    <script defer src="js/layout.js"></script>
+    <script defer src="js/markets.js"></script>
+</head>
+<body>
+    <header data-site-header></header>
+    <main id="main" class="wrap inner-page markets-page">
+        <header class="page-intro">
+            <h1>Markets</h1>
+            <p>Explore how a share price changes over time. Choose a company, then switch between periods on the chart.</p>
+        </header>
+        <section class="market-panel" aria-labelledby="stock-title">
+            <div class="market-toolbar">
+                <div>
+                    <h2 id="stock-title">Share price history</h2>
+                    <p id="company-note" aria-live="polite">Apple designs devices including the iPhone and Mac.</p>
+                </div>
+                <div class="market-picker">
+                    <label for="market-symbol">Company</label>
+                    <select id="market-symbol">
+                        <option value="AAPL">Apple (AAPL)</option>
+                        <option value="MSFT">Microsoft (MSFT)</option>
+                        <option value="AMZN">Amazon (AMZN)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="market-chart-area">
+                <div id="market-widget"></div>
+                <p id="chart-status" role="status">Loading chart…</p>
+            </div>
+            <div class="market-caption">
+                <span>Prices in USD · Quotes may be delayed.</span>
+                <a id="chart-link" href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" target="_blank" rel="noopener noreferrer">Open AAPL on TradingView ↗</a>
+            </div>
+        </section>
+        <section class="market-reading" aria-labelledby="reading-title">
+            <h2 id="reading-title">How to read the chart</h2>
+            <p>Read from left to right to follow the price through time. Compare one month with one year to see how a short move fits into a longer trend.</p>
+        </section>
+    </main>
+    <footer data-site-footer></footer>
+</body>
+</html>
